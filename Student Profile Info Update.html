@@ -813,9 +813,9 @@
                             let isWhiteBackground = true;
                             for (let p of pointsToCheck) {
                                 const data = ctx.getImageData(p.x, p.y, 1, 1).data;
-                                // If pixel is visible (alpha > 50), it must be near-white (RGB > 240)
+                                // If pixel is visible (alpha > 50), it must be light/near-white (RGB > 200 to allow for JPEG artifacts)
                                 if (data[3] > 50) {
-                                    if (data[0] < 235 || data[1] < 235 || data[2] < 235) {
+                                    if (data[0] < 200 || data[1] < 200 || data[2] < 200) {
                                         isWhiteBackground = false;
                                         break;
                                     }
